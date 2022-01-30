@@ -63,3 +63,21 @@ c = encrypt(m, publicKey)
 print("Зашифрованный  текст: % s" % c)
 d = decrypt(c, privateKey)
 print("Обычный  текст после расшифровки: % s" % d)
+
+
+OR
+
+
+
+import rsa
+
+(pubkey, privkey) = rsa.newkeys(512)
+
+message = 'Hello Distributed Lab 2022'
+
+# шифруем
+crypto = rsa.encrypt(message, pubkey)
+print(crypto)
+# расшифровываем
+message = rsa.decrypt(crypto, privkey)
+print(message)
