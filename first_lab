@@ -6,7 +6,7 @@ while True:
     str1 = input('Write your message:')
     if len(str1) >= 53 or str1 == ' ' or str1 == '':
         print('The message must not be " " or "" ')
-        break
+        continue
     else:
         #privkey
         enctex = rsa.encrypt(str1.encode(), pubkey)
