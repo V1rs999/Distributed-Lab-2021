@@ -1,19 +1,18 @@
-from cryptography.fernet import Fernet
+import rsa
+import sys
 
 while True:
     print('Practical work №1\n'+'Write your message:', end=" ")
+    pubkey, privkey = rsa.newkeys(512)
     str1 = input()
-    if str1 == ' ' or str1 == '':
+    if str1 == ' ' and str1 == '':
         print('The message must not be " " or "" ')
         break
     else:
-        key = Fernet.generate_key()
-
-        fernet = Fernet(key)
-
-        enctex = fernet.encrypt(str1.encode())
-
-        dectex = fernet.decrypt(enctex).decode()
+        #privkey
+        enctex = rsa.encrypt(str1.encode(), pubkey)
+        #pubkey
+        dectex = rsa.decrypt(enctex, privkey).decode()
 
         print("The primordial string: ", str1)
         print("The Encrypted message: ", enctex)
