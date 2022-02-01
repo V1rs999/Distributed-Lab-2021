@@ -1,11 +1,10 @@
 import rsa
-import sys
 
 while True:
-    print('Practical work №1\n'+'Write your message:', end=" ")
+    print('Practical work №1')
     pubkey, privkey = rsa.newkeys(512)
-    str1 = input()
-    if str1 == ' ' and str1 == '':
+    str1 = input('Write your message:')
+    if len(str1) >= 53 or str1 == ' ' or str1 == '':
         print('The message must not be " " or "" ')
         break
     else:
